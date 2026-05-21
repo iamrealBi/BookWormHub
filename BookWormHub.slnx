@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="BookWormHub.Tests/BookWormHub.Tests.csproj" />
+  <Project Path="BookWormHub/BookWormHub.csproj" />
+</Solution>

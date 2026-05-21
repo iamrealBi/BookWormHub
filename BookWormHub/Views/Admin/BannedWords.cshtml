@@ -1,0 +1,8 @@
+@model BookWormHub.ViewModels.AdminBannedWordsViewModel
+@{ ViewData["Title"] = "Quản Lý Từ Cấm"; }
+<h1>Quản Lý Từ Cấm</h1>
+@if (!string.IsNullOrEmpty(Model.StatusMessage)) { <div class="alert alert-success alert-dismissible fade show" role="alert">@Model.StatusMessage<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div> }
+@if (!string.IsNullOrEmpty(Model.ErrorMessage)) { <div class="alert alert-danger alert-dismissible fade show" role="alert">@Model.ErrorMessage<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div> }
+<div class="card mb-3"><div class="card-body"><form asp-action="AddBannedWord" method="post" class="row g-2 align-items-end"><div class="col-md-6"><label class="form-label">Thêm từ cấm mới</label><input type="text" name="word" class="form-control" placeholder="Nhập từ cấm..." required /></div><div class="col-md-3"><button type="submit" class="btn btn-danger">Thêm</button></div></form></div></div>
+<table class="table table-striped"><thead><tr><th>Từ Cấm</th><th>Ngày Thêm</th><th></th></tr></thead><tbody>@foreach (var word in Model.Words){<tr><td><code>@word.Word</code></td><td>@word.CreatedAt.ToString("dd/MM/yyyy HH:mm")</td><td><form asp-action="DeleteBannedWord" asp-route-id="@word.Id" method="post" style="display:inline"><button type="submit" class="btn btn-sm btn-outline-danger" onclick="return confirm('Xóa từ này?')">Xóa</button></form></td></tr>}</tbody></table>
+<p class="text-muted">Tổng: @Model.Words.Count từ cấm</p>

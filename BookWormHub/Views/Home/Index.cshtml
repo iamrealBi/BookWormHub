@@ -1,0 +1,6 @@
+@model BookWormHub.ViewModels.HomeIndexViewModel
+@{ ViewData["Title"] = "Trang Chủ"; }
+<div class="text-center mb-5"><h1 class="display-4">BookWorm Hub</h1><p class="lead">Nền tảng cộng đồng đánh giá sách</p><a asp-controller="Book" asp-action="Index" class="btn btn-primary btn-lg">Khám Phá Thư Viện</a></div>
+<div class="row text-center mb-4"><div class="col-md-4"><div class="card bg-primary text-white"><div class="card-body"><h2>@Model.BookCount</h2><p>Cuốn sách</p></div></div></div><div class="col-md-4"><div class="card bg-success text-white"><div class="card-body"><h2>@Model.ReviewCount</h2><p>Đánh giá</p></div></div></div><div class="col-md-4"><div class="card bg-info text-white"><div class="card-body"><h2>@Model.UserCount</h2><p>Thành viên</p></div></div></div></div>
+<h3>Sách Mới Thêm</h3>
+<div class="row">@foreach (var book in Model.LatestBooks){<div class="col-md-4 mb-3"><div class="card h-100"><div class="card-body"><h5 class="card-title">@book.Title</h5><p class="card-text text-muted">@book.Author</p><span class="badge bg-secondary">@book.Genre</span></div><div class="card-footer"><a asp-controller="Book" asp-action="Details" asp-route-id="@book.Id" class="btn btn-outline-primary btn-sm">Xem chi tiết</a></div></div></div>}</div>

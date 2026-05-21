@@ -1,0 +1,30 @@
+## .NET
+bin/
+obj/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+## VS
+.vs/
+*.rsuser
+[Dd]ebug/
+[Rr]elease/
+
+## User-specific
+*.DotSettings.user
+launchSettings.json
+
+## Build
+[Bb]uild[Ll]og.*
+*.log
+
+## NuGet
+**/packages/*
+project.lock.json
+project.fragment.lock.json
+
+## OS
+Thumbs.db
+.DS_Store
